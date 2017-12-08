@@ -50,7 +50,38 @@ public class Drive {
 	public void resetGyro() {
 		gyro.reset();
 	}
-
+	
+	public void demoDrive(double joyR, double joyL) {
+		// Defines the variables for the speed of left and right sides of the robot
+		double speedR, speedL;
+		
+		// Checks if the right joystick is in the deadzone
+		if (Math.abs(joyR) > Pronstants.DEAD_ZONE) {
+			// If it isn't, set the speed of the right side to the joystick value
+			speedR = joyR;
+		}
+		
+		else {
+			// Otherwise, set the speed of the right side to zero
+			speedR = 0;
+		}
+		
+		// Checks if the left joystick is in the deadzone
+		if (Math.abs(joyL) > Pronstants.DEAD_ZONE) {
+			// If it isn't, set the speed of the left side to the joystick value
+			speedL = joyL;
+		}
+		
+		else {
+			// Otherwise, set the speed of the left side to zero
+			speedL = 0;
+		}
+		
+		// Drives the Robot at the designated speed divided by 2 for sensitivity
+		drive(speedR/2, speedL/2);
+		
+	}
+	
 	// Drives the robot according to joystick values
 	public void joystickDrive(double joyR, double joyL, boolean trig) {
 		// Defines the variables for the speed of left and right sides of the robot

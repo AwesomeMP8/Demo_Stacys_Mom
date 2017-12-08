@@ -100,7 +100,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		// Tells the code which autonomous program to run based on buttons from the smartDash
-		auto.run(mode, shoot, vision);
+		//auto.run(mode, shoot, vision);
 
 	}
 
@@ -123,8 +123,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		// Drives the robot according to the joystick inputs
-		drive.joystickDrive(joyR.getRawAxis(1), joyL.getRawAxis(1), joyR.getTrigger());
-		
+		//drive.joystickDrive(joyR.getRawAxis(1), joyL.getRawAxis(1), joyR.getTrigger());
+		drive.demoDrive(joyR.getRawAxis(1), joyL.getRawAxis(1));
 		// Makes the robot climb up or down according to the joystick inputs
 		climber.checkClimbInput(joyR.getRawButton(2), joyL.getRawButton(8));
 		
